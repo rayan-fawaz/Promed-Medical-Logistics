@@ -1,0 +1,139 @@
+<svg viewBox="0 0 1000 620" xmlns="http://www.w3.org/2000/svg" fill="none">
+  <style>
+    .land { fill: #e4e9f0; stroke: #cdd4de; stroke-width: 1.2; stroke-linejoin: round; transition: fill 0.2s; }
+    .land:hover { fill: #d8dfe9; }
+    .hub-ring { fill: none; stroke: #0a2540; stroke-width: 1.5; opacity: 0.2; }
+    .hub-ring-hq { fill: none; stroke: #d4a017; stroke-width: 2; opacity: 0.35; }
+    .hub { fill: #0a2540; }
+    .hub-center { fill: #fff; }
+    .city-dot { fill: #9aa5b4; }
+    .lbl { font-family: 'Inter', -apple-system, system-ui, sans-serif; fill: #1e2733; }
+    .lbl-gray { font-family: 'Inter', -apple-system, system-ui, sans-serif; fill: #8a95a5; }
+    .legend-bg { fill: #fff; stroke: #e0e5ec; stroke-width: 1; rx: 10; }
+  </style>
+
+  <!-- YUKON -->
+  <path class="land" d="M68,175 L58,140 L52,105 L56,72 L64,48 L78,30 L95,22 L108,28 L112,48 L108,75 L102,100 L95,120 L82,148 Z"/>
+
+  <!-- NORTHWEST TERRITORIES -->
+  <path class="land" d="M95,120 L102,100 L108,75 L112,48 L108,28 L128,20 L160,14 L200,10 L245,8 L290,6 L340,8 L368,16 L380,28 L370,48 L355,72 L348,95 L345,108 L290,112 L230,114 L175,116 L140,118 Z"/>
+
+  <!-- NUNAVUT -->
+  <path class="land" d="M345,108 L348,95 L355,72 L370,48 L380,28 L410,18 L455,10 L510,6 L570,4 L630,8 L680,16 L720,28 L745,45 L755,65 L748,82 L735,88 L710,85 L680,82 L645,80 L610,82 L575,88 L545,95 L520,105 L510,108 L495,105 L475,102 L450,100 L420,102 L395,105 L370,108 Z"/>
+
+  <!-- BRITISH COLUMBIA -->
+  <path class="land" d="M68,175 L82,148 L95,120 L140,118 L145,150 L148,185 L150,215 L155,250 L160,280 L162,310 L158,340 L148,360 L135,368 L120,365 L105,358 L90,345 L78,328 L68,310 L62,285 L58,255 L55,225 L58,200 Z"/>
+
+  <!-- ALBERTA -->
+  <path class="land" d="M140,118 L175,116 L210,115 L215,150 L218,185 L220,215 L222,250 L225,280 L228,310 L230,340 L162,340 L162,310 L160,280 L155,250 L150,215 L148,185 L145,150 Z"/>
+
+  <!-- SASKATCHEWAN -->
+  <path class="land" d="M210,115 L290,112 L292,150 L294,185 L296,215 L298,250 L300,280 L302,310 L302,340 L230,340 L228,310 L225,280 L222,250 L220,215 L218,185 L215,150 Z"/>
+
+  <!-- MANITOBA -->
+  <path class="land" d="M290,112 L345,108 L370,108 L375,128 L380,155 L378,185 L375,215 L380,245 L388,275 L392,305 L390,340 L375,352 L358,358 L340,355 L322,348 L310,345 L302,340 L302,310 L300,280 L298,250 L296,215 L294,185 L292,150 Z"/>
+
+  <!-- ONTARIO -->
+  <path class="land" d="M390,340 L392,305 L388,275 L380,245 L375,215 L378,185 L380,155 L375,128 L370,108 L395,105 L420,102 L450,100 L475,102 L495,105 L520,108 L540,118 L555,135 L562,155 L558,178 L548,198 L542,218 L548,238 L558,258 L572,278 L582,298 L588,318 L584,338 L575,352 L562,362 L545,370 L525,375 L505,378 L488,375 L470,372 L455,375 L438,378 L420,375 L405,368 L395,355 Z"/>
+
+  <!-- QUEBEC -->
+  <path class="land" d="M588,318 L582,298 L572,278 L558,258 L548,238 L542,218 L548,198 L558,178 L562,155 L555,135 L548,120 L560,112 L585,105 L615,100 L648,96 L682,92 L710,85 L735,88 L748,98 L745,118 L738,138 L730,158 L725,182 L728,208 L735,235 L738,260 L736,288 L730,310 L718,328 L702,340 L685,348 L665,355 L648,358 L630,360 L615,358 L600,352 L592,342 Z"/>
+
+  <!-- NEW BRUNSWICK -->
+  <path class="land" d="M685,348 L702,340 L715,342 L725,352 L730,368 L725,382 L715,392 L702,395 L690,392 L680,385 L675,372 L678,358 Z"/>
+
+  <!-- NOVA SCOTIA -->
+  <path class="land" d="M702,395 L715,392 L730,388 L748,392 L762,400 L772,412 L775,422 L770,432 L760,438 L748,440 L732,438 L718,432 L708,422 L702,410 Z"/>
+
+  <!-- PEI -->
+  <path class="land" d="M735,370 L748,368 L758,372 L760,380 L755,386 L745,388 L735,384 L732,378 Z"/>
+
+  <!-- NEWFOUNDLAND -->
+  <path class="land" d="M772,282 L790,272 L810,268 L830,272 L845,282 L852,298 L850,315 L842,328 L828,336 L812,340 L798,336 L785,328 L775,315 L770,300 Z"/>
+
+  <!-- LABRADOR -->
+  <path class="land" d="M725,182 L738,138 L745,118 L748,98 L762,92 L778,88 L790,98 L795,118 L798,142 L795,168 L788,192 L778,212 L768,228 L755,240 L742,248 L735,235 L728,208 Z"/>
+
+
+  <!-- HUB MARKERS -->
+
+  <!-- Ottawa HQ -->
+  <circle cx="548" cy="345" r="18" class="hub-ring-hq"/>
+  <circle cx="548" cy="345" r="12" class="hub-ring-hq" style="opacity:0.2"/>
+  <circle cx="548" cy="345" r="7" class="hub"/>
+  <circle cx="548" cy="345" r="3" class="hub-center"/>
+
+  <!-- Mississauga -->
+  <circle cx="520" cy="372" r="12" class="hub-ring"/>
+  <circle cx="520" cy="372" r="5.5" class="hub"/>
+  <circle cx="520" cy="372" r="2.5" class="hub-center"/>
+
+  <!-- Montreal -->
+  <circle cx="622" cy="342" r="12" class="hub-ring"/>
+  <circle cx="622" cy="342" r="5.5" class="hub"/>
+  <circle cx="622" cy="342" r="2.5" class="hub-center"/>
+
+  <!-- Calgary -->
+  <circle cx="198" cy="278" r="12" class="hub-ring"/>
+  <circle cx="198" cy="278" r="5.5" class="hub"/>
+  <circle cx="198" cy="278" r="2.5" class="hub-center"/>
+
+  <!-- Edmonton -->
+  <circle cx="205" cy="232" r="12" class="hub-ring"/>
+  <circle cx="205" cy="232" r="5.5" class="hub"/>
+  <circle cx="205" cy="232" r="2.5" class="hub-center"/>
+
+
+  <!-- CITY DOTS -->
+  <circle cx="92" cy="322" r="3.5" class="city-dot"/>
+  <circle cx="340" cy="340" r="3.5" class="city-dot"/>
+  <circle cx="512" cy="358" r="3.5" class="city-dot"/>
+  <circle cx="710" cy="382" r="3.5" class="city-dot"/>
+  <circle cx="835" cy="310" r="3.5" class="city-dot"/>
+
+
+  <!-- LABELS -->
+  <text x="548" y="328" text-anchor="middle" class="lbl" font-size="11" font-weight="700">Ottawa</text>
+  <text x="548" y="318" text-anchor="middle" class="lbl" font-size="7.5" font-weight="700" fill="#d4a017" letter-spacing="0.12em">HQ</text>
+
+  <text x="520" y="392" text-anchor="middle" class="lbl" font-size="10" font-weight="600">Mississauga</text>
+  <text x="622" y="362" text-anchor="middle" class="lbl" font-size="10" font-weight="600">Montréal</text>
+  <text x="198" y="300" text-anchor="middle" class="lbl" font-size="10" font-weight="600">Calgary</text>
+  <text x="205" y="222" text-anchor="middle" class="lbl" font-size="10" font-weight="600">Edmonton</text>
+
+  <text x="92" y="340" text-anchor="middle" class="lbl-gray" font-size="9" font-weight="500">Vancouver</text>
+  <text x="340" y="356" text-anchor="middle" class="lbl-gray" font-size="9" font-weight="500">Winnipeg</text>
+  <text x="498" y="355" text-anchor="end" class="lbl-gray" font-size="9" font-weight="500">Toronto</text>
+  <text x="710" y="372" text-anchor="middle" class="lbl-gray" font-size="9" font-weight="500">Halifax</text>
+  <text x="835" y="300" text-anchor="middle" class="lbl-gray" font-size="9" font-weight="500">St. John's</text>
+
+
+  <!-- LEGEND -->
+  <rect x="30" y="430" width="200" height="155" class="legend-bg" filter="drop-shadow(0 2px 8px rgba(0,0,0,0.06))"/>
+  <text x="48" y="456" class="lbl" font-size="12" font-weight="700">Distribution Hubs</text>
+
+  <circle cx="48" cy="478" r="5" fill="#d4a017"/>
+  <circle cx="48" cy="478" r="2.2" fill="#fff"/>
+  <text x="62" y="482" class="lbl" font-size="10" font-weight="700">Ottawa</text>
+  <text x="112" y="482" class="lbl-gray" font-size="9.5">30,000 sq ft</text>
+
+  <circle cx="48" cy="500" r="4" fill="#0a2540"/>
+  <circle cx="48" cy="500" r="1.8" fill="#fff"/>
+  <text x="62" y="504" class="lbl" font-size="10" font-weight="600">Mississauga</text>
+  <text x="142" y="504" class="lbl-gray" font-size="9.5">10,000 sq ft</text>
+
+  <circle cx="48" cy="522" r="4" fill="#0a2540"/>
+  <circle cx="48" cy="522" r="1.8" fill="#fff"/>
+  <text x="62" y="526" class="lbl" font-size="10" font-weight="600">Montréal</text>
+  <text x="122" y="526" class="lbl-gray" font-size="9.5">10,000 sq ft</text>
+
+  <circle cx="48" cy="544" r="4" fill="#0a2540"/>
+  <circle cx="48" cy="544" r="1.8" fill="#fff"/>
+  <text x="62" y="548" class="lbl" font-size="10" font-weight="600">Calgary</text>
+  <text x="112" y="548" class="lbl-gray" font-size="9.5">7,000 sq ft</text>
+
+  <circle cx="48" cy="566" r="4" fill="#0a2540"/>
+  <circle cx="48" cy="566" r="1.8" fill="#fff"/>
+  <text x="62" y="570" class="lbl" font-size="10" font-weight="600">Edmonton</text>
+  <text x="128" y="570" class="lbl-gray" font-size="9.5">5,000 sq ft</text>
+</svg>
