@@ -16,7 +16,7 @@
   <nav class="nav">
     <div class="container nav-inner">
       <a href="../index.html" class="nav-logo">
-        <div class="nav-logo-mark"><svg viewBox="0 0 24 24" fill="none"><path d="M12 3v18M3 12h18" stroke="currentColor" stroke-width="3" stroke-linecap="round"/></svg></div>
+        <div class="nav-logo-mark nav-logo-mark--img"><img src="../images/promed-logo.png" alt="ProMed Medical Logistics" width="44" height="44" decoding="async"></div>
         <div class="nav-logo-text"><span class="brand">PROMED</span><span class="sub">Medical Logistics</span></div>
       </a>
       <div class="nav-menu" id="navMenu">
@@ -62,7 +62,7 @@
               </div>
               <div>
                 <div class="label">Phone</div>
-                <div class="value"><a href="tel:6133668787">613-366-8787</a></div>
+                <div class="value"><a href="tel:+16138626108">613-862-6108</a><br><a href="tel:+18193554192">819-355-4192</a></div>
               </div>
             </div>
 
@@ -72,7 +72,7 @@
               </div>
               <div>
                 <div class="label">Email</div>
-                <div class="value"><a href="mailto:info@promedmedicallogistics.ca">info@promedmedicallogistics.ca</a></div>
+                <div class="value"><a href="mailto:promedmedicallogistics@gmail.com">promedmedicallogistics@gmail.com</a></div>
               </div>
             </div>
 
@@ -103,37 +103,49 @@
           <h3>Request a custom quote</h3>
           <p>Fill out the form below and a member of our team will respond within one business day.</p>
 
-          <form id="quoteForm">
+          <form id="quoteForm" name="contact" method="POST" action="/pages/contact.html" netlify netlify-honeypot="bot-field" novalidate>
+            <input type="hidden" name="form-name" value="contact" />
+            <p class="hidden-honeypot" style="display:none">
+              <label>Don't fill this out: <input name="bot-field" autocomplete="off" /></label>
+            </p>
+
+            <div id="formNetworkError" class="form-submit-error" role="alert"></div>
+
             <div class="form-grid">
               <div class="form-group">
-                <label for="name">Full name <span class="required">*</span></label>
-                <input type="text" id="name" name="name" required>
+                <label for="full_name">Full name <span class="required">*</span></label>
+                <input type="text" id="full_name" name="full_name" autocomplete="name">
+                <p class="field-error" id="full_name-error" aria-live="polite"></p>
               </div>
               <div class="form-group">
-                <label for="company">Company / Facility <span class="required">*</span></label>
-                <input type="text" id="company" name="company" required>
+                <label for="company">Company / Organization</label>
+                <input type="text" id="company" name="company" autocomplete="organization">
+                <p class="field-error" id="company-error" aria-live="polite"></p>
               </div>
               <div class="form-group">
                 <label for="email">Email <span class="required">*</span></label>
-                <input type="email" id="email" name="email" required>
+                <input type="email" id="email" name="email" autocomplete="email">
+                <p class="field-error" id="email-error" aria-live="polite"></p>
               </div>
               <div class="form-group">
-                <label for="phone">Phone</label>
-                <input type="tel" id="phone" name="phone">
+                <label for="phone">Phone number <span class="required">*</span></label>
+                <input type="tel" id="phone" name="phone" autocomplete="tel">
+                <p class="field-error" id="phone-error" aria-live="polite"></p>
               </div>
               <div class="form-group full">
-                <label for="service">Service of interest <span class="required">*</span></label>
-                <select id="service" name="service" required>
+                <label for="service_interest">Service interested in <span class="required">*</span></label>
+                <select id="service_interest" name="service_interest">
                   <option value="">Select a service…</option>
-                  <option value="ltc">Retirement / Long-Term Care</option>
-                  <option value="supply">Medical Supply Distribution</option>
-                  <option value="biohazard">Biohazard & Sharps Disposal</option>
-                  <option value="medication">Medication Delivery</option>
-                  <option value="automation">Pharmacy Automation (PACMED/PACVision)</option>
-                  <option value="cold-chain">Cold Chain Transport</option>
-                  <option value="multiple">Multiple Services</option>
-                  <option value="other">Something Else</option>
+                  <option value="Compliance Packaging">Compliance Packaging</option>
+                  <option value="Medical Supply Distribution">Medical Supply Distribution</option>
+                  <option value="Biohazard Pickup">Biohazard Pickup</option>
+                  <option value="Medication Delivery">Medication Delivery</option>
+                  <option value="Pharmacy Automation">Pharmacy Automation</option>
+                  <option value="Cold Chain Transport">Cold Chain Transport</option>
+                  <option value="Telemedicine">Telemedicine</option>
+                  <option value="Other">Other</option>
                 </select>
+                <p class="field-error" id="service_interest-error" aria-live="polite"></p>
               </div>
               <div class="form-group full">
                 <label for="volume">Estimated monthly volume</label>
@@ -144,10 +156,12 @@
                   <option value="200-500">200 – 500 shipments / month</option>
                   <option value="500+">500+ shipments / month</option>
                 </select>
+                <p class="field-error" id="volume-error" aria-live="polite"></p>
               </div>
               <div class="form-group full">
-                <label for="message">Tell us about your needs <span class="required">*</span></label>
-                <textarea id="message" name="message" required placeholder="Where are you located? What kinds of products or shipments? Any urgent timing or compliance needs?"></textarea>
+                <label for="message">Message</label>
+                <textarea id="message" name="message" placeholder="Where are you located? What kinds of products or shipments? Any urgent timing or compliance needs?"></textarea>
+                <p class="field-error" id="message-error" aria-live="polite"></p>
               </div>
             </div>
 
@@ -162,8 +176,9 @@
             <div class="check-icon">
               <svg viewBox="0 0 24 24" fill="none"><path d="M5 12l5 5L20 7" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg>
             </div>
-            <h3>Thanks — we got it.</h3>
-            <p>Our team will respond within one business day. For urgent matters, call <strong>613-366-8787</strong>.</p>
+            <h3>Thanks!</h3>
+            <p>We'll get back to you within 24 hours.</p>
+            <p id="formLocalNote" class="form-disclaimer" style="display: none; margin-top: 1rem;">Local preview only — nothing was sent. Netlify Forms only accepts submissions from your deployed site; simple local servers (like Python’s) don’t accept POST either.</p>
           </div>
         </div>
 
@@ -178,7 +193,7 @@
         <div class="footer-brand">
           <h3>Promed Medical Logistics</h3>
           <p>Canada's trusted partner for medical supply chain, pharmacy automation, and healthcare logistics — delivering across Canada.</p>
-          <p style="font-size: 0.85rem; opacity: 0.6;">2706 Alta Vista Dr.<br>Ottawa, ON<br><strong style="color: white; opacity: 1;">613-366-8787</strong></p>
+          <p style="font-size: 0.85rem; opacity: 0.6;">2706 Alta Vista Dr.<br>Ottawa, ON<br><strong style="color: white; opacity: 1;"><a href="tel:+16138626108" style="color: inherit;">613-862-6108</a></strong><br><strong style="color: white; opacity: 1;"><a href="tel:+18193554192" style="color: inherit;">819-355-4192</a></strong></p>
         </div>
         <div>
           <h5>Services</h5>
@@ -203,8 +218,9 @@
           <h5>Get In Touch</h5>
           <ul>
             <li><a href="contact.html">Request a Quote</a></li>
-            <li><a href="tel:6133668787">613-366-8787</a></li>
-            <li><a href="mailto:info@promedmedicallogistics.ca">info@promedmedicallogistics.ca</a></li>
+            <li><a href="tel:+16138626108">613-862-6108</a></li>
+            <li><a href="tel:+18193554192">819-355-4192</a></li>
+            <li><a href="mailto:promedmedicallogistics@gmail.com">promedmedicallogistics@gmail.com</a></li>
           </ul>
         </div>
       </div>

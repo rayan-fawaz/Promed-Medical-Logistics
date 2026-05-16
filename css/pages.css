@@ -658,6 +658,36 @@
   color: var(--red);
 }
 
+.form-group .field-error {
+  display: none;
+  font-size: 0.8rem;
+  color: var(--red);
+  margin-top: 0.35rem;
+  line-height: 1.3;
+}
+
+.form-group .field-error.is-visible {
+  display: block;
+}
+
+.form-group input.input-invalid,
+.form-group select.input-invalid,
+.form-group textarea.input-invalid {
+  border-color: var(--red);
+}
+
+.form-submit-error {
+  display: none;
+  font-size: 0.9rem;
+  color: var(--red);
+  margin-bottom: 1rem;
+  line-height: 1.4;
+}
+
+.form-submit-error.is-visible {
+  display: block;
+}
+
 .form-group input,
 .form-group select,
 .form-group textarea {

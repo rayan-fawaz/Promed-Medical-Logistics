@@ -56,23 +56,114 @@ document.addEventListener('DOMContentLoaded', () => {
     fadeObserver.observe(el);
   });
 
-  // Form submission (placeholder — replace with real endpoint)
+  const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+  function clearFieldErrors(form) {
+    form.querySelectorAll('.field-error').forEach((el) => {
+      el.textContent = '';
+      el.classList.remove('is-visible');
+    });
+    form.querySelectorAll('.input-invalid').forEach((el) => {
+      el.classList.remove('input-invalid');
+    });
+  }
+
+  function showFieldError(inputId, message) {
+    const input = document.getElementById(inputId);
+    const err = document.getElementById(`${inputId}-error`);
+    if (input) input.classList.add('input-invalid');
+    if (err) {
+      err.textContent = message;
+      err.classList.add('is-visible');
+    }
+  }
+
+  function isNetlifyFormsHost() {
+    if (location.protocol === 'file:') return false;
+    const h = location.hostname;
+    return h !== 'localhost' && h !== '127.0.0.1';
+  }
+
   const quoteForm = document.getElementById('quoteForm');
   if (quoteForm) {
-    quoteForm.addEventListener('submit', (e) => {
-      e.preventDefault();
-      const formData = new FormData(quoteForm);
-      const data = Object.fromEntries(formData);
+    const successMsg = document.getElementById('formSuccess');
+    const networkErr = document.getElementById('formNetworkError');
+    const submitBtn = quoteForm.querySelector('button[type="submit"]');
 
-      // Show success message
-      const successMsg = document.getElementById('formSuccess');
-      if (successMsg) {
-        quoteForm.style.display = 'none';
-        successMsg.style.display = 'block';
+    quoteForm.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      clearFieldErrors(quoteForm);
+      const localNote = document.getElementById('formLocalNote');
+      if (localNote) localNote.style.display = 'none';
+      if (networkErr) {
+        networkErr.textContent = '';
+        networkErr.classList.remove('is-visible');
       }
 
-      console.log('Quote request:', data);
-      // In production: send to your backend / Formspree / Netlify Forms / etc.
+      const fullName = (document.getElementById('full_name')?.value ?? '').trim();
+      const email = (document.getElementById('email')?.value ?? '').trim();
+      const phone = (document.getElementById('phone')?.value ?? '').trim();
+      const serviceInterest = document.getElementById('service_interest')?.value ?? '';
+
+      let ok = true;
+      if (!fullName) {
+        showFieldError('full_name', 'Please enter your name.');
+        ok = false;
+      }
+      if (!email) {
+        showFieldError('email', 'Please enter your email address.');
+        ok = false;
+      } else if (!EMAIL_RE.test(email)) {
+        showFieldError('email', 'Please enter a valid email address.');
+        ok = false;
+      }
+      if (!phone) {
+        showFieldError('phone', 'Please enter your phone number.');
+        ok = false;
+      }
+      if (!serviceInterest) {
+        showFieldError('service_interest', 'Please select a service.');
+        ok = false;
+      }
+
+      if (!ok) return;
+
+      if (!isNetlifyFormsHost()) {
+        if (successMsg) {
+          quoteForm.style.display = 'none';
+          successMsg.style.display = 'block';
+        }
+        if (localNote) localNote.style.display = 'block';
+        return;
+      }
+
+      if (submitBtn) submitBtn.disabled = true;
+
+      try {
+        const body = new URLSearchParams(new FormData(quoteForm)).toString();
+        const formAction = quoteForm.getAttribute('action') || '/';
+        const res = await fetch(formAction, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+          body
+        });
+
+        if (!res.ok) throw new Error('Network error');
+
+        if (successMsg) {
+          quoteForm.style.display = 'none';
+          successMsg.style.display = 'block';
+        }
+        if (localNote) localNote.style.display = 'none';
+      } catch {
+        if (networkErr) {
+          networkErr.textContent =
+            'Something went wrong. Please email promedmedicallogistics@gmail.com or call 613-862-6108.';
+          networkErr.classList.add('is-visible');
+        }
+      } finally {
+        if (submitBtn) submitBtn.disabled = false;
+      }
     });
   }
 

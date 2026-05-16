@@ -279,6 +279,24 @@ section {
   color: var(--white);
 }
 
+.nav-logo-mark--img {
+  background: none;
+  border-radius: 0;
+  width: 44px;
+  height: 44px;
+}
+
+.nav-logo-mark--img::after {
+  display: none;
+}
+
+.nav-logo-mark--img img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+}
+
 .nav-logo-text {
   display: flex;
   flex-direction: column;
